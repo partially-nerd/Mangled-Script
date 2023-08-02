@@ -1,5 +1,6 @@
 #include <iostream>
 #include <regex>
+#include <vector>
 #include <string.h>
 #include <math.h>
 
@@ -211,20 +212,11 @@ public:
     }
 }; // String class
 
-String FString(string a, vector<Num> args)
+String FString(String a, vector<String> args)
 {
     for (auto arg : args)
     {
-        a = regex_replace(a, (regex) "\#", to_string(arg.getValue()), regex_constants::format_first_only);
-    }
-    return a;
-} // Formatted String
-
-String FString(string a, vector<String> args)
-{
-    for (auto arg : args)
-    {
-        a = regex_replace(a, (regex) "\#", arg.getValue(), regex_constants::format_first_only);
+        a = regex_replace(a.getValue(), (regex) "\#", arg.getValue(), regex_constants::format_first_only);
     }
     return a;
 } // Formatted String

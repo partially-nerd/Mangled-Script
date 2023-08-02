@@ -11,6 +11,6 @@ function main() -> int
         sum += number
     end for
     avg = sum / 3
-    io::print(FString("The average of the numbers is #"),{avg})
+    io::print(FString("The average of the numbers is #",{avg}))
     return 0
 end function
