@@ -19,6 +19,38 @@ function main() -> int
 end
 ```
 
+## Demo
+```lua
+import core
+
+function main() -> int
+    sum = 0.0
+    for i : Range(3)
+        number = io::input("Enter a number: ").toNum()
+        sum += number
+    end for
+    avg = sum / 3
+    io::print(FString("The average of the numbers is #"),{avg})
+    return 0
+end function
+```
+Transpiles to:
+```c++
+#include "core.h++"
+int main()
+{
+    Num sum = 0.0;
+    for(auto i : Range(3))
+    {
+        Num number = io::input("Enter a number: ").toNum();
+        sum += number;
+    };
+    Num avg = sum / 3;
+    io::print(FString("The average of the numbers is #"), {avg});
+    return 0;
+};
+```
+
 ## How it works
 - Indentation doesn't matter
 - Automatically identify variable types
